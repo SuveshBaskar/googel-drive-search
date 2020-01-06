@@ -54,18 +54,17 @@ function listFiles(auth) {
         q:
           "mimeType='application/vnd.google-apps.document' and fullText contains '" +
           text +
-          "' and 'suvesh@yellowmessenger.com' in readers",
+          "' and 'abc@yellowmessenger.com' in readers",
         fields: 'nextPageToken, files'
       },
       (err, res) => {
         if (err) return console.log('The API returned an error: ' + err);
         const files = res.data.files;
         if (files.length) {
-          console.log('Files:');
-          files.map(file => {
-            console.log(`${file.name} :  ${file.webViewLink}`);
-            // console.log(file);
-          });
+          console.log('Files: ', files);
+          // files.map(file => {
+          //   console.log(file);
+          // });
         } else {
           console.log('No files found.');
         }
